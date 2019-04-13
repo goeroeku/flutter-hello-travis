@@ -38,9 +38,12 @@ matrix:
       before_deploy:
         - git config --local user.name "$user_name"
         - git config --local user.email "$user_email"
-        - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-        - echo "$TRAVIS_TAG" "$TRAVIS_COMMIT"
-        - git tag $TRAVIS_TAG
+        - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)} # cek if there are tag on github
+        ## use script bellow if you want MANUAL TAG
+        # - export TRAVIS_TAG=v1.0.0 # !! MANUAL tag : change this when git push !!
+        # - echo "$TRAVIS_TAG" "$TRAVIS_COMMIT"
+        # - git tag $TRAVIS_TAG
+        ## end MANUAL TAG
 
       deploy:
         provider: releases
