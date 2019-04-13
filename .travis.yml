@@ -35,18 +35,10 @@ matrix:
       script:
         - ./flutter/bin/flutter -v build apk
 
-      before_deploy:
-        - export TRAVIS_TAG=$GIT_TAG
-        - echo "$GIT_TAG" "$TRAVIS_TAG" "$TRAVIS_COMMIT"
-        - git config --local user.name "$USER_NAME"
-        - git config --local user.email "$USER_EMAIL"
-        - git tag "$TRAVIS_TAG" "$TRAVIS_COMMIT"
       deploy:
         provider: releases
         file: build/outputs/apk/app-release.apk
-        tag_name: $TRAVIS_TAG
-        target_commitish: $TRAVIS_COMMIT
-        name: FlutterHelloTravis-$TRAVIS_TAG.$TRAVIS_BUILD_NUMBER
+        name: FlutterHelloTravis-$TRAVIS_BRANCH
         overwrite: true
         skip_cleanup: true
         on:
