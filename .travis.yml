@@ -45,6 +45,8 @@ matrix:
       deploy:
         provider: releases
         file: build/app/outputs/apk/release/app-release.apk
+        tag_name: $TRAVIS_TAG
+        target_commitish: $TRAVIS_COMMIT
         name: FlutterHelloTravis-$TRAVIS_BRANCH
         overwrite: true
         skip_cleanup: true
