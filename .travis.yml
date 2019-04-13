@@ -50,13 +50,14 @@ matrix:
         file: build/app/outputs/apk/release/app-release.apk
         tag_name: $TRAVIS_TAG
         target_commitish: $TRAVIS_COMMIT
-        name: FlutterHelloTravis-$TRAVIS_BRANCH
+        name: FlutterHelloTravis $TRAVIS_TAG
         overwrite: true
         skip_cleanup: true
         on:
           repo: goeroeku/flutter-hello-travis
+          branch: master
           # tags: true # if you want build when there are git push with tag
-          tags: false
+          tags: true
           jdk: oraclejdk8
         api_key: $github_token
 
