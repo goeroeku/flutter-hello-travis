@@ -39,17 +39,18 @@ matrix:
         provider: releases
         file: app-release.apk
         skip_cleanup: true
-
         on:
           branch: master
           tags: false
           jdk: oraclejdk8
+        api_key: $github_token
 
     - os: osx
       language: generic
       osx_image: xcode9.2
       before_script:
         - python --version
+        - pip install --upgrade pip
         - pip2 install six
         - brew update
         - brew install --HEAD libimobiledevice
