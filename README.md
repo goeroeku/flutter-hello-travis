@@ -2,6 +2,8 @@
 
 Flutter hellow world auto CI/CD using Travis
 
+<img src="screenshots/1.png" width="400">
+
 ## How To
 
 1. Aktifkan CI/CD pada repo di travis-ci.org
